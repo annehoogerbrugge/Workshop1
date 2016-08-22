@@ -1,0 +1,11 @@
+<object-stream>
+  <string>&lt;klanten&gt;
+  &lt;klant&gt;
+    &lt;klantId&gt;1&lt;/klantId&gt;
+    &lt;voornaam&gt;h&lt;/voornaam&gt;
+    &lt;achternaam&gt;w&lt;/achternaam&gt;
+    &lt;tussenvoegsel&gt;j&lt;/tussenvoegsel&gt;
+    &lt;email&gt;ret@me.be&lt;/email&gt;
+  &lt;/klant&gt;
+&lt;/klanten&gt;</string>
+</object-stream>
