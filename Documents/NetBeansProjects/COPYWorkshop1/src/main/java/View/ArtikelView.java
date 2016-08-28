@@ -30,14 +30,22 @@ public class ArtikelView {
         System.out.println("4. Artikelgevens verwijderen.");
         System.out.println("5. Terug naar het hoofdmenu.");       
         
-        try{
-             userInput = Integer.parseInt(scanner.nextLine());
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 6) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
         
     }
     
@@ -82,15 +90,22 @@ public class ArtikelView {
         System.out.println("2. naar alle artikelen.");
         System.out.println("3. terug naar het menu Artikel.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+       boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
     }
     
     
@@ -101,14 +116,22 @@ public class ArtikelView {
         System.out.println("2. Zoeken met artikel naam.");
         System.out.println("3. Zoeken met artikel prijs.");
         System.out.println("4. Terug naar het artikel hoofd menu.");
-        try{
-            userInput = scanner.nextInt();  
-            scanner.nextLine();
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
         
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 5) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
         return userInput;          
     }
     
@@ -130,15 +153,22 @@ public class ArtikelView {
         System.out.println("1. Ja.");
         System.out.println("2. Nee.");
         
-        try{
-            userInput = scanner.nextInt();  
-            scanner.nextLine();
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;  
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;    
     }
     
     public int voerArtikelIdIn() {
@@ -153,15 +183,22 @@ public class ArtikelView {
         System.out.println("1. ja.");
         System.out.println("2. nee");
         
-        try{
-            userInput = scanner.nextInt();  
-            scanner.nextLine();
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
         
     }
     
@@ -172,15 +209,22 @@ public class ArtikelView {
         System.out.println("2. alle artikelen.");
         System.out.println("3. terug naar het artikel menu.");
         
-        try{
-            userInput = scanner.nextInt();  
-            scanner.nextLine();
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
     }
     
     public int printDeleteArtikelView() {
@@ -190,8 +234,8 @@ public class ArtikelView {
             userInput = scanner.nextInt();  
             scanner.nextLine();
         }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, voer het artikel id in.");
+        catch(InputMismatchException | NumberFormatException ex){
+            System.out.println("Foute input, voer het artikel id in.");
         }
         
         return userInput;
@@ -212,14 +256,22 @@ public class ArtikelView {
         System.out.println("1. ja");
         System.out.println("2. nee");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());        
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
         
     }
  

@@ -28,15 +28,24 @@ public class KlantView {
         System.out.println("4. Klantgegevens verwijderen.");
         System.out.println("5. Terug naar het hoofdmenu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-            
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 6) {
+                    doorgaan = false;
+                    
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;
+        
     }
     
     public String voerAchterNaamIn(){
@@ -88,33 +97,28 @@ public class KlantView {
     // loop werkt niet
     public int isKlantIdBekend(){        
               
-        boolean doorgaan = false; // false by default        
+        System.out.println("Is het klantId bekend?");
+        System.out.println("1. ja");    
+        System.out.println("2. nee");
+        System.out.println("3. Terug naar klant menu");
+        userInput = Integer.parseInt(scanner.nextLine());            
+
+        boolean doorgaan = true; 
         
-        do{
+        while (doorgaan == true) {                  
             try{
-                System.out.println("Is het klantId bekend?");
-                System.out.println("1. ja");    
-                System.out.println("2. nee");
-                System.out.println("3. Terug naar klant menu");
                 userInput = Integer.parseInt(scanner.nextLine());            
-
-                
-                if (userInput == 1 || userInput == 2 || userInput == 3){
-                    doorgaan = true;
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
                 } 
-
-                if(doorgaan == false){             
-                    System.out.println("Foutieve input, voer 1, 2, 3 in.");
-                } 
-                // foutafhandeling werkt niet
-            }catch(InputMismatchException ex){
-                LOGGER.warn("Error. Voer het  cijfer 1, 2, 3 in. ");
-                scanner.nextLine();
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
             }
-            
-        } while(doorgaan == false);
-       
-        return userInput;         
+        }
+        return userInput;                 
     }
     
     
@@ -138,20 +142,22 @@ public class KlantView {
         System.out.println("4. Terug naar klantmenu");
         System.out.println("Maak een keuze:");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());    
-        //scanner.nextLine();
-
-        //checker = false;
+        boolean doorgaan = true; 
         
-        } catch (InputMismatchException ex){
-            LOGGER.warn("Foutieve input, kies uit de opties 1,2,3.");
-            //scanner.nextLine();
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 5) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-         
-       // } while (checker);
-        
-        return userInput;
+        return userInput;  
         
     }
     
@@ -161,23 +167,22 @@ public class KlantView {
         System.out.println("1. ja");
         System.out.println("2. nee");
         
-        // make do while loop
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-
-            if (userInput == 1 || userInput == 2){
-                //scanner.nextLine();
-            }
-            else {
-                System.out.println("Foutieve input, voer 1 of 2 in.");
-            } 
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("", ex);
-        }
+        boolean doorgaan = true; 
         
-        return userInput; 
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
         
     }
    
@@ -187,15 +192,22 @@ public class KlantView {
         System.out.println("2. Alle klanten verwijderen.");
         System.out.println("3. Terug naar klantmenu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
     }
     
     public int menuKlantZoeken(){
@@ -205,15 +217,22 @@ public class KlantView {
         System.out.println("2. Gegevens alle klanten.");
         System.out.println("3. Terug naar klantmenu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
     }
         
     
@@ -224,14 +243,22 @@ public class KlantView {
         System.out.println("1. ja");
         System.out.println("2. nee");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());        
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput;  
         
     }
     
