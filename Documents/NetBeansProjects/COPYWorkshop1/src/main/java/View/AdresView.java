@@ -33,13 +33,22 @@ public class AdresView {
         System.out.println("5. Adres, klantkoppelingen zoeken");
         System.out.println("6. Terug naar het hoofdmenu.");
         
-        try {
-            userInput = Integer.parseInt(scanner.nextLine());
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 7) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
-        return userInput;
+        return userInput;  
         
     }
     
@@ -48,13 +57,23 @@ public class AdresView {
         System.out.println("1. ja.");
         System.out.println("2. nee");
         
-        try {
-             userInput = Integer.parseInt(scanner.nextLine());
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
-        return userInput;
+        return userInput; 
+        
     }
     
      public int voerKlantIdIn() {
@@ -117,15 +136,22 @@ public class AdresView {
         System.out.println("2. Alle adressen opzoeken.");
         System.out.println("3. Terug naar adres menu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
     }
     
      public int menuAdresKlantZoeken(){
@@ -135,15 +161,22 @@ public class AdresView {
         System.out.println("2. Alle adressen bij klanten opzoeken.");
         System.out.println("3. Terug naar adres menu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
     }
     
     
@@ -156,13 +189,22 @@ public class AdresView {
         System.out.println("5. Woonplaats.");
         System.out.println("6. Terug naar adres menu.");
         
-        try {
-            userInput = Integer.parseInt(scanner.nextLine());
+       boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 7) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
-        return userInput;
+        return userInput; 
     }
     
     public void printAdressenLijst(ArrayList<Adres> adressenLijst) {
@@ -197,13 +239,22 @@ public class AdresView {
         System.out.println("1. Ja.");
         System.out.println("2. Nee.");
         
-        try {
-            userInput = Integer.parseInt(scanner.nextLine());
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
-        return userInput;
+        return userInput; 
     }
     
     public int printVerwijderAdresMenu() {
@@ -212,13 +263,21 @@ public class AdresView {
         System.out.println("2. alle adressen.");
         System.out.println("3. terug naar het adres menu.");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());            
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
         return userInput;
     }
     
@@ -227,14 +286,22 @@ public class AdresView {
         System.out.println("1. ja");
         System.out.println("2. nee");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());        
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
     }
     
     
@@ -244,14 +311,22 @@ public class AdresView {
         System.out.println("1. ja");
         System.out.println("2. nee");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());        
-        }
-        catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
         
     }
         

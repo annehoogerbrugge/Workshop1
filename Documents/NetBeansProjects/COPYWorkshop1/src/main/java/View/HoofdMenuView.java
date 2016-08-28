@@ -65,17 +65,25 @@ public class HoofdMenuView {
         System.out.println("2. Werken in artikelbestand");
         System.out.println("3. Werken in bestellingbestand");
         System.out.println("4. Werken in adresbestand");
-        System.out.println("5. Wisselen van Database/connectionpool");
+        System.out.println("5. Wisselen van Database");
         System.out.println("6. Programma afsluiten");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine()); 
-            
-        }catch(InputMismatchException ex){
-            LOGGER.warn("Foute input, kies van de opties hierboven.");
-        }
+        boolean doorgaan = true; 
         
-        return userInput;
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 7) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
     }
     
     
@@ -87,7 +95,7 @@ public class HoofdMenuView {
         System.out.println("1. ja");
         System.out.println("2. nee");       
         
-        do{              
+        while (doorgaan == true) {              
             try{
                 userInput = Integer.parseInt(scanner.nextLine());  
                 //userInput = scanner.nextInt();
@@ -101,18 +109,13 @@ public class HoofdMenuView {
                     doorgaan = false;
                 }
                 else {   
-                    System.out.println("Foute input, kies van de opties hierboven.");
-                    System.out.println();
-                    scanner.nextLine();
+                    System.out.println("Foute input, kies een van de opties hierboven.");             
                 }                
             }
-            catch(InputMismatchException ex){
-                LOGGER.warn("Foute input, kies van de opties hierboven.");
-                System.out.println();
-                scanner.nextLine();
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
             }
-        
-        } while(doorgaan == true);
+        } 
         
        return userInput;        
     }

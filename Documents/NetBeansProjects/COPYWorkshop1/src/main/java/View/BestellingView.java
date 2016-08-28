@@ -36,7 +36,7 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
     
     public int startBestellingMenu(){
         
-        try{
+        
             System.out.println("Maak een keuze:");
             System.out.println("1 bestelling plaatsen");
             System.out.println("2 bestellingsinformatie ophalen");
@@ -46,13 +46,23 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
             System.out.println("6 verwijder alle bestellingen");
             System.out.println("7 terug naar hoofdmenu");       
 
-            userInput = Integer.parseInt(scanner.nextLine());
-            
-        } catch (InputMismatchException ex){
-            System.out.print("Foute input, kies één van de opties hierboven.");
-        }    
+            boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 8) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
+        }
+        return userInput; 
 
-    return userInput;
     }
     
     
@@ -72,8 +82,8 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
         
         try{
             userInput = Integer.parseInt(scanner.nextLine());         
-        } catch (InputMismatchException ex){
-            System.out.println("Vul een getal in.");
+        } catch(InputMismatchException | NumberFormatException ex){
+            System.out.println("Foute input, vul het bestelling ID in.");
         }
         
         return userInput;
@@ -124,13 +134,22 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
         System.out.println("Wat wil je doen met dit artikel?\n1. Verwijderen\n2. Aantal wijzigen");
         userInput = 0;
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine()); 
-        } catch (InputMismatchException ex){
-            System.out.println("Vul een getal in.");
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-
-        return userInput;
+        return userInput; 
         
     }
     
@@ -188,23 +207,25 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
         }
     
     public int verwijderConfirmatie(){
-        int userChoice = 0;
-        boolean checker = false;
         
         System.out.println("Weet je zeker dat je alles wilt verwijderen?\n1 ja\n2 nee");
-        do{
-            
         
-        try{
-           userChoice = scanner.nextInt();
-           checker = true; 
-           
-        } catch (InputMismatchException ex){
-           System.out.println("Voer een integer in.");
-           checker = false;
+        boolean doorgaan = true; 
+        
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 3) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-        } while (checker == false);
-        return userChoice;
+        return userInput; 
     }
     
      public int hoeWiltUZoeken(){
@@ -215,20 +236,22 @@ BestellingArtikelDAOInterface bestellingArtikelDAO = DaoFactory.getBestellingArt
         System.out.println("3. Terug naar bestellingmenu");
         System.out.println("Maak een keuze:");
         
-        try{
-            userInput = Integer.parseInt(scanner.nextLine());    
-        //scanner.nextLine();
-
-        //checker = false;
+        boolean doorgaan = true; 
         
-        } catch (InputMismatchException ex){
-            LOGGER.warn("Foutieve input, kies uit de opties 1,2,3.");
-            //scanner.nextLine();
+        while (doorgaan == true) {                  
+            try{
+                userInput = Integer.parseInt(scanner.nextLine());            
+                if (userInput > 0 && userInput < 4) {
+                    doorgaan = false;   
+                } 
+                else 
+                    System.out.println("Foute input, kies een van de opties hierboven.");
+                }
+            catch(InputMismatchException | NumberFormatException ex){
+                System.out.println("Foute input, kies een van de opties hierboven.");
+            }
         }
-         
-       // } while (checker);
-        
-        return userInput;
+        return userInput; 
         
     }
 }
