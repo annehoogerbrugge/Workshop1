@@ -1,42 +1,67 @@
 package MAIN;
 
 import Controller.HoofdMenuController;
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.LoggerContext;
+import DAOs.AdresDao;
+import DAOs.ArtikelDao;
+import DAOGenerics.GenericDaoImpl;
+import DAOs.KlantDao;
+import Helpers.HibernateSessionFactory;
+import POJO.Adres;
+import POJO.Artikel;
+import POJO.Klant;
+
+import TestHibernate.HibernateTest;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
-import org.slf4j.Logger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 /**
  *
  * @author Excen
  */
 
-public class Main {   
-    
-    Logger rootLogger = LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
-    private static final Logger logger = (Logger) LoggerFactory.getLogger("com.webshop");
-    //private static ch.qos.logback.classic.Logger errorLogger = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger("com.webshop.err");
-    private static ch.qos.logback.classic.Logger testLogger = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger("com.webshop.test");
-    
-    
+public class Main {       
    
-    
+   private static Logger errorLogger = (Logger) LoggerFactory.getLogger("com.webshop.err");
+   private static Logger testLogger = (Logger) LoggerFactory.getLogger("com.webshop.test");
+  
+   
     public static void main (String[]args) throws SQLException, ClassNotFoundException, FileNotFoundException {    
-         
-//        // assume SLF4J is bound to logback in the current environment
-//        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-//        // print logback's internal status
-//        StatusPrinter.print(lc);
 
-        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-        lc.setPackagingDataEnabled(true);
+      HoofdMenuController start = new HoofdMenuController();
+      start.start();
         
-      
-        HoofdMenuController start = new HoofdMenuController();
-        start.setConnectionPool();
-        logger.info("U kunt werken in het klanten bestand");
-        testLogger.debug("Toetreden tot bestand werkt");
        
     } 
+    
+//     public static void editLog(){
+//        Properties p = new Properties(System.getProperties());
+//        p.put("com.mchange.v2.log.MLog", "com.mchange.v2.log.FallbackMLog");
+//        p.put("com.mchange.v2.c3p0.SQLWarnings", "com.mchange.v2.c3p0");
+//        p.put("com.mchange.v2.log.FallbackMLog.DEFAULT_CUTOFF_LEVEL", "OFF");// Off or any other level
+//        //p.put ("org.firebirdsql.jdbc.FBSQLWarning:")
+//        System.setProperties(p);  
+//    }  
+
+    public void persist(Object object) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_WebshopJavaApplicatie_jar_1.0-SNAPSHOTPU2");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        try {
+            em.persist(object);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+    }
 }
